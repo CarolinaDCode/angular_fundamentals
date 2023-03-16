@@ -15,4 +15,12 @@ export class AppComponent {
     age: 32,
     avatar: 'https://hips.hearstapps.com/vidthumb/images/vanessa-hudgens-1670836622.jpg'
   }
+
+  toggleButton() {
+    this.btnDisabled = !this.btnDisabled;
+  }
+
+  increaseAge(){
+    this.person.age += 1;
+  }
 }
