@@ -1,15 +1,26 @@
+<!DOCTYPE html>
 <h1>Eventos</h1>
 <button [disabled]="btnDisabled">Enviar</button>
 <button (click)="toggleButton()">Toggle Button</button>
 <p>Edad {{person.age}}</p>
 <button (click)="increaseAge()">Agee ++</button>
-<!-- Falta la documentacion de Introducción al Event Binding de Angular-->
+<hr>
+<h2>Segundo Evento</h2>
+<div class="box" (scroll)="onScroll($event)">
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+</div>
+<!-- Leyendo los Eventos de un Input -->
+<!-- Key up - captura cada vez que se teclea algo -->
+<p>Nombre {{person.name}}</p>
+<input type="text" [value]="person.name" (keyup)="changeName($event)">
+<hr>
 
 <h1>Propiedades</h1>
 <button [disabled]="btnDisabled">Enviar</button>
 <input type="text" [value]="person.name">
 <progress max="100" [value]="person.age"></progress>
 <img width="100" [src]="person.avatar"/>
+<hr>
 
 <h1>Hola mundo</h1>
 <h2>{{ 'Hola Diana'.repeat(5)}}</h2>
