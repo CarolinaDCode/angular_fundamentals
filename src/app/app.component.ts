@@ -7,10 +7,17 @@ import { Product } from './product.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  widthImg = 10;
   name = 'Diana';
   age = 20;
   img = "https://images.hola.com/imagenes/mascotas/20210217184541/gatos-gestos-lenguaje-significado/0-922-380/gatos-gestos-m.jpg?tx=w_680";
   btnDisabled = true;
+  register = {
+    name: '',
+    email: '',
+    password: ''
+  }
+
   person = {
     name: 'Vanessa',
     age: 32,
@@ -19,6 +26,11 @@ export class AppComponent {
 
   names: string[] = ['Rut', 'Carla', 'Milagros', 'Mayra']
   newName = '';
+  box = {
+    width: 100,
+    height: 100,
+    background: 'red'
+  }
 
   products: Product[] = [
     {
@@ -79,5 +91,9 @@ export class AppComponent {
 
   deleteName(index: number){
     this.names.splice(index, 1);
+  }
+
+  onRegister(){
+    console.log(this.register)
   }
 }
