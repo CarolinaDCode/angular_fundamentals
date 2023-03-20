@@ -6,6 +6,7 @@ import { Product } from './product.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   widthImg = 10;
   name = 'Diana';
@@ -32,6 +33,7 @@ export class AppComponent {
     background: 'red'
   }
 
+  headerImg = './assets/images/angular15.png' 
   products: Product[] = [
     {
       name: 'EL mejor juguete',
