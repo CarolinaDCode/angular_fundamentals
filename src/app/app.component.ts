@@ -10,6 +10,10 @@ import { Product } from './product.model';
 export class AppComponent {
   imgParent = '';
 
+  onLoaded(img: string){
+    console.log('log padre', img);
+  }
+
   widthImg = 10;
   name = 'Diana';
   age = 20;
