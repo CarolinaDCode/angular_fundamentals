@@ -1,11 +1,11 @@
-import { Component, Input, Output, EventEmitter, OnInit, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnChanges, AfterViewInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-img',
   templateUrl: './img.component.html',
   styleUrls: ['./img.component.css']
 })
-export class ImgComponent implements OnInit, OnChanges, AfterViewInit{
+export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy{
 
   @Input() img: string = '';
   @Output() loaded = new EventEmitter<string>();
@@ -46,7 +46,15 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit{
      * After Render
      * Handler Child
      */
-    console.log('ngAfterViewInit', 'imgValue =>', this.img)
+    console.log('ngAfterViewInit')
+  }
+
+  ngOnDestroy() {
+    /** 
+     * Ciclo de vida de componentes:(5)
+     * Delete Component and its instance
+     */
+    console.log('ngOnDestroy')
   }
 
   imgError(){
