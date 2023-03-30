@@ -37,6 +37,8 @@ export class AppComponent {
 
   imgParent = '';
 
+  showImg = true;
+
   onLoaded(img: string){
     console.log('log padre', img);
   }
@@ -130,5 +132,9 @@ export class AppComponent {
 
   onRegister(){
     console.log(this.register)
+  }
+
+  toggleImg(){
+    this.showImg = !this.showImg;
   }
 }

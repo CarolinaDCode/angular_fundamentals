@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <p><input type="text" [(ngModel)]="imgParent" /></p>
-<app-img (loaded)="onLoaded($event)" [img]="imgParent"></app-img><br>
+<button (click)="toggleImg()">Toggle Img</button>
+<p>{{showImg}}</p>
+
+<app-img *ngIf="showImg" (loaded)="onLoaded($event)" [img]="imgParent"></app-img><br>
 
 <app-product [product]="productUni" *ngFor="let productUni of products2"></app-product>
 

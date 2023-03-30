@@ -12,6 +12,9 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
 
   imageDefault = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ-qA-E6jcwhgYe5Nw3ClDO4RqCQuj9Dj9S45wVlzGqeBJmfCuNTgtcBC23Pf9BsAyUoY&usqp=CAU";
 
+  counter = 0;
+  counterFn : number | undefined;
+
   constructor() {
     /** 
      * Ciclo de vida de componentes:(1)
@@ -38,6 +41,11 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
      * Once time
      */
     console.log('ngOnInit', 'imgValue =>', this.img)
+
+    this.counterFn = window.setInterval(()=>{
+      this.counter += 1;
+      console.log('run counter');
+    }, 1000)
   }
 
   ngAfterViewInit() {
@@ -54,7 +62,8 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
      * Ciclo de vida de componentes:(5)
      * Delete Component and its instance
      */
-    console.log('ngOnDestroy')
+    console.log('ngOnDestroy');
+    window.clearInterval(this.counterFn);
   }
 
   imgError(){
