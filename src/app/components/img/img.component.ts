@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit, OnChanges, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnChanges, AfterViewInit, OnDestroy, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-img',
@@ -7,7 +7,14 @@ import { Component, Input, Output, EventEmitter, OnInit, OnChanges, AfterViewIni
 })
 export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy{
 
-  @Input() img: string = '';
+  img: string = '';
+
+  @Input('img') 
+      set changeImg(newImg: string){
+        this.img = newImg;
+        console.log('Change the img =>', this.img)
+      }
+  @Input() alt: string = '';
   @Output() loaded = new EventEmitter<string>();
 
   imageDefault = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ-qA-E6jcwhgYe5Nw3ClDO4RqCQuj9Dj9S45wVlzGqeBJmfCuNTgtcBC23Pf9BsAyUoY&usqp=CAU";
@@ -24,13 +31,14 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
     console.log('constructor', 'imgValue =>', this.img)
   }
 
-  ngOnChanges(){
+  ngOnChanges(changes: SimpleChanges){
   /** 
      * Ciclo de vida de componentes:(2)
      * Before Render
      * Changes Inputs - items
      */
     console.log('ngOnChanges', 'imgValue =>', this.img)
+    console.log('changes', changes);
   }
 
   ngOnInit(): void {
