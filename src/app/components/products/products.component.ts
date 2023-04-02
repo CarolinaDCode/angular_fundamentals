@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product.model';
+import { StoreService } from 'src/app/services/store.service';
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent {
+
+export class ProductsComponent implements OnInit {
+  
+  myShoppingCart: Product[] = [];
+  total= 0;
+
   products2: Product[] = [
     {
       id: '1',
@@ -31,5 +38,21 @@ export class ProductsComponent {
       price: 444,
       image: './assets/images/books.jpg'
     }
-  ]
+  ];
+
+  /** 
+   * Para incluir a este servicio dentro del componente
+   * Vamos a crear algo que se llama Inyección de Dependencias
+   * constructor(private StoreService: StoreService)
+  */
+  constructor(private StoreService: StoreService){
+    this.myShoppingCart = this.StoreService.getShoppingCart();
+  }
+
+  ngOnInit(): void{}
+
+  onAddToShoppingCart(product: Product){
+    this.StoreService.addProduct(product);
+    this.total = this.StoreService.getTotal();
+  }
 }
