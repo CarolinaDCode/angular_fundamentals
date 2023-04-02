@@ -6,6 +6,7 @@
     "my-store": {
       "projectType": "application",
       "schematics": {
+          "styleext": "scss"         
       },
       "root": "",
       "sourceRoot": "src",
@@ -26,7 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -88,7 +89,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
