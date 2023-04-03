@@ -2,9 +2,15 @@
   La cantidad {{ myShoppingCart.length}}
 </p>
 <p>
+  Total: ${{ total }}
+</p>
+<p>
+  Today: {{ today | date: 'short'}}
+</p>
+<p>
+  Otra Fecha: {{ date | date: 'dd/MM/YYYY'}}
 </p>
 <div class="products--grid">
-  Total: ${{ total }}
   <app-product
     [product]="productUni"
     *ngFor="let productUni of products2"

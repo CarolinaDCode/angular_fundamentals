@@ -16,7 +16,8 @@ export class ProductsComponent implements OnInit {
   total= 0;
 
   products2: Product[] = [];
-
+  today = new Date();
+  date = new Date(2023,2,30)
   /** 
    * Para incluir a este servicio dentro del componente
    * Vamos a crear algo que se llama Inyección de Dependencias
