@@ -8,7 +8,9 @@ import { AppComponent } from './app.component';
 import { ImgComponent } from './components/img/img.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
-import { NavComponent } from './components/nav/nav.component'
+import { NavComponent } from './components/nav/nav.component';
+import { ReversePipe } from './pipes/reverse.pipe';
+import { TimesAgoPipe } from './pipes/times-ago.pipe'
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { NavComponent } from './components/nav/nav.component'
     ImgComponent,
     ProductComponent,
     ProductsComponent,
-    NavComponent
+    NavComponent,
+    ReversePipe,
+    TimesAgoPipe
   ],
   imports: [
     BrowserModule,
